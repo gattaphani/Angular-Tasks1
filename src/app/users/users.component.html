@@ -1,0 +1,20 @@
+<!-- <p>users works!</p> -->
+<input type="text" [(ngModel)]="search" placeholder="Search">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let p of Users;let i=index;trackBy:trackById|filter:search">
+        <td>{{p.name}}</td>
+        <td>{{p.username}}</td>
+        <td>{{p.email}}</td>
+        <td>{{p.phone}}</td>
+    </tr>
+</table>
+<button *ngIf="showMore" class="btn btn-primary" (click)="getMoreUsers()">Get More Users</button>
+<button *ngIf="showLess" class="btn btn-primary" (click)="showLessUsers()">Show Less</button>

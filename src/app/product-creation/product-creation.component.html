@@ -1,0 +1,61 @@
+<p>product-creation works!</p>
+<div class="col-md-4"></div>
+<div class="col-md-4 offset-md-4">
+    <form [formGroup]="productDetails" (ngSubmit)="Submit(productDetails)">
+        <div class="form-group" class="mb-3">
+            <input type="number" class="form-control" formControlName="slno" name="slno" placeholder="Slno" />
+            <div *ngIf="formControls['slno'].hasError('required')">
+                slno is required.
+              </div>
+              <div *ngIf="formControls['slno'].hasError('minlength')">
+                slno must be at least 1 character long.
+              </div>
+        </div>
+        <div class="form-group" class="mb-3">
+            <select id="category" [(ngModel)]="selected1" class="form-control" name="category"
+                formControlName="category" placeholder="category">
+                <option value="null" hidden disabled>Select Category</option>
+                <option value={{c.name}} *ngFor="let c of categories">
+                    {{ c.name }}
+                </option>
+            </select>
+            <div *ngIf="formControls['category'].hasError('required')">
+                category is required.
+              </div>
+             
+        </div>
+        <div class="form-group" class="mb-3">
+            <input type="text" class="form-control" formControlName="name" name="name" placeholder="Name" />
+            <div *ngIf="formControls['name'].hasError('required')">
+                name is required.
+              </div>
+              <div *ngIf="formControls['name'].hasError('minlength')">
+                name must be at least 2 character long.
+              </div>
+        </div>
+        <div class="form-group" class="mb-3">
+            <select id="rating" [(ngModel)]="selected2" class="form-control" name="rating" formControlName="rating"
+                placeholder="rating">
+                <option value="null" hidden disabled>Select Rating</option>
+                <option value={{r.name}} *ngFor="let r of ratings">
+                    {{ r.name }}
+                </option>
+            </select>
+            <div *ngIf="formControls['rating'].hasError('required')">
+                rating is required.
+              </div>
+        </div>
+        <div class="form-group" class="mb-3">
+            <input type="text" class="form-control" formControlName="description" name="description"
+                placeholder="Description">
+                <div *ngIf="formControls['description'].hasError('required')">
+                    description is required.
+                  </div>
+                  <div *ngIf="formControls['description'].hasError('minlength')">
+                    description must be at least 2 character long.
+                  </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="productDetails.invalid">Add</button>
+
+    </form>
+</div>

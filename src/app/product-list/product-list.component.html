@@ -1,0 +1,28 @@
+
+<button class="btn btn-primary mt-3" style="position: relative;left: 1200px;margin-bottom: 20px;" (click)="addProduct()">Add Product</button>
+<div class="container">
+  <table class="table" border="=1">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of product; let i = index">
+        <td>{{ item.slno }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.rating }}</td>
+        <td>{{ item.description }}</td>
+        <td><button  class="btn btn-primary" (click)="edit(item)">Edit</button></td>
+        <td><button  class="btn btn-danger" (click)="delete(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
