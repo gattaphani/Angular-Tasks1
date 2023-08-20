@@ -1,1 +1,35 @@
 <p>posts works!</p>
+<div class="d-flex justify-content-center">
+ 
+    <button class="btn btn-primary" (click)="createPost()">Add</button>
+  </div>
+<!-- <button class="btn btn-primary">Add</button> -->
+<table class="table container">
+    <tr>
+      <th>Id</th>
+      <th>User Id</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor = "let p of Posts | paginate: {
+        itemsPerPage: tableSize,
+        currentPage: page,
+        totalItems: count
+      }; let i = index">
+      <td>{{p.id}}</td>
+      <td>{{p.userId}}</td>
+      <td>{{p.title}}</td>
+      <td>{{p.body}}</td>
+      <td><button class="btn btn-primary"  (click)="editPost(p.id)">Edit</button></td>
+      <td><button class="btn btn-danger" (click)="deletePost(p.id)">Delete</button></td>
+    </tr>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>

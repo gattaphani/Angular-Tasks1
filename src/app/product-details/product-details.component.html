@@ -6,7 +6,7 @@
       <input type="number" class="form-control" formControlName="slno" name="slno" placeholder="Slno" />
     </div>
     <div class="form-group" class="mb-3">
-    <select id="category" [(ngModel)]="selected1" class="form-control" name="category" formControlName="category" placeholder="category">
+    <select id="category" class="form-control" name="category" formControlName="category" placeholder="category">
         <option value="null" hidden disabled>Select Category</option>
       <option value={{c.name}} *ngFor="let c of categories">
         {{ c.name }}
@@ -17,7 +17,7 @@
       <input type="text" class="form-control" formControlName="name" name="name" placeholder="Name" />
     </div>
     <div class="form-group" class="mb-3">
-      <select id="rating" [(ngModel)]="selected2" class="form-control" name="rating" formControlName="rating" placeholder="rating">
+      <select id="rating"  class="form-control" name="rating" formControlName="rating" placeholder="rating">
         <option value="null" hidden disabled>Select Rating</option>
         <option value={{r.name}} *ngFor="let r of ratings">
           {{ r.name }}

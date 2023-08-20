@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductCreationComponent } from './product-creation/product-creation.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostCreationComponent } from './post-creation/post-creation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,17 @@ import { PostsComponent } from './posts/posts.component';
     ProductDetailsComponent,
     ProductCreationComponent,
     ProductListComponent,
-    PostsComponent
+    PostsComponent,
+    PostCreationComponent
   ],
   imports: [
+    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

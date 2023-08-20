@@ -8,6 +8,7 @@ import { ProductCreationComponent } from './product-creation/product-creation.co
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostCreationComponent } from './post-creation/post-creation.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
   { path: 'product-creation', component: ProductCreationComponent },
   { path: 'product-details', component: ProductDetailsComponent },
   { path: 'posts', component: PostsComponent },
+ 
+  { path: 'post-creation/:id', component: PostCreationComponent },
+  { path: 'post-creation', component: PostCreationComponent },
 
 
 ];

@@ -10,11 +10,12 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent {
-  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder, private ps:ProductService) { }
-  product: Product[]=[];
+  constructor(private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private ps: ProductService) { }
+  product: Product[] = [];
   productDetails!: FormGroup;
   selected1 = null;
   selected2 = null;
+  details: any;
   categories: Category[] = [
     { id: 1, name: 'Mobiles' },
     { id: 2, name: 'Televisions' },
@@ -29,7 +30,7 @@ export class ProductDetailsComponent {
     { id: 4, name: '4****' },
     { id: 5, name: '5*****' },
   ];
- 
+
   ngOnInit() {
     this.productDetails = this.fb.group({
       slno: ['', [Validators.required]],
@@ -38,21 +39,26 @@ export class ProductDetailsComponent {
       rating: ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
-    this.ps.subscribe$.subscribe((f:any)=>{
-      // console.log(f)
+
+    this.ps.subscribe$.subscribe((s: any) => {
+      this.details = s
+      console.log(this.details)
+      this.mapProduct(this.details)
+    })
+  }
+  mapProduct(f: any) {
     this.productDetails.patchValue({
       slno: f.slno,
       category: f.category,
       name: f.name,
       rating: f.rating,
-      description:f.description
+      description: f.description
     });
-    console.log(this.productDetails.value)
-  })
-    }
+    console.log(f)
+  }
 
-upadteProduct(update:any){
-  console.log(update.value)
-  this.router.navigate(['/product-list']);
-}
+  upadteProduct(update: any) {
+    console.log(update.value)
+    this.router.navigate(['/product-list']);
+  }
 }
