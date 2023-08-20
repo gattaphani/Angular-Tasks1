@@ -13,6 +13,7 @@ import { FilterPipe } from './filter.pipe';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductCreationComponent } from './product-creation/product-creation.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     FilterPipe,
     ProductDetailsComponent,
     ProductCreationComponent,
-    ProductListComponent
+    ProductListComponent,
+    PostsComponent
   ],
   imports: [
     FormsModule,

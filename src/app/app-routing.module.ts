@@ -7,6 +7,7 @@ import { UsersComponent } from './users/users.component';
 import { ProductCreationComponent } from './product-creation/product-creation.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'product-list', component: ProductListComponent },
   { path: 'product-creation', component: ProductCreationComponent },
   { path: 'product-details', component: ProductDetailsComponent },
+  { path: 'posts', component: PostsComponent },
 
 
 ];

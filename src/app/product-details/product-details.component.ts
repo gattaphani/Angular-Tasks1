@@ -38,11 +38,8 @@ export class ProductDetailsComponent {
       rating: ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
-    this.getData();
-    }
-getData(){
     this.ps.subscribe$.subscribe((f:any)=>{
-      console.log(f)
+      // console.log(f)
     this.productDetails.patchValue({
       slno: f.slno,
       category: f.category,
@@ -50,8 +47,10 @@ getData(){
       rating: f.rating,
       description:f.description
     });
+    console.log(this.productDetails.value)
   })
-}
+    }
+
 upadteProduct(update:any){
   console.log(update.value)
   this.router.navigate(['/product-list']);
